@@ -1,0 +1,81 @@
+# Виртуальное окружение
+.venv/
+venv/
+env/
+ENV/
+venv/
+env/
+
+# Python кэш
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyc
+
+# Модель (большие файлы)
+*.pkl
+*.joblib
+*.h5
+*.pb
+final_pipeline.pkl
+
+# CatBoost логи и временные файлы
+catboost_info/
+catboost_training.json
+learn_error.tsv
+time_left.tsv
+*.cb
+
+# Логи
+*.log
+*.tmp
+*.cache
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Streamlit
+.streamlit/
+.streamlit/secrets.toml
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
+*.ipynb_checkpoints
+
+# Файлы конфигурации
+.env
+*.env
+config.local.py
+
+# Временные файлы
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# OS
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Документация и отчеты (если есть)
+*.pdf
+*.docx
+reports/
+notebooks/
+
+# Тестовые данные (если большие)
+data/raw/
+data/processed/
+*.csv.backup
