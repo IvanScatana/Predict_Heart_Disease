@@ -93,27 +93,27 @@ def create_final_pipeline():
     }
     
     rf_params = {
-        'n_estimators': 160,
-        'max_depth': 8,
-        'min_samples_split': 3,
-        'min_samples_leaf': 1,
-        'max_features': 'sqrt',
-        'random_state': 42,
-        'n_jobs': -1
+    'n_estimators': 80,          # уменьшили с 160
+    'max_depth': 5,              # уменьшили с 8
+    'min_samples_split': 10,     # увеличили с 3
+    'min_samples_leaf': 5,       # увеличили с 1
+    'max_features': 'sqrt',
+    'random_state': 42,
+    'n_jobs': -1
     }
     
     cat_params = {
-        'iterations': 362,
-        'learning_rate': 0.016551169742448912,
-        'depth': 6,
-        'l2_leaf_reg': 0.695964941461517,
-        'bagging_temperature': 0.9551919414289034,
-        'random_strength': 0.0031946898142617,
-        'subsample': 0.6064592532795193,
-        'border_count': 127,
-        'eval_metric': 'Accuracy',
-        'verbose': 0,
-        'random_seed': 42
+    'iterations': 250,           # уменьшили с 362
+    'learning_rate': 0.05,       # увеличили с 0.0165
+    'depth': 4,                  # уменьшили с 6
+    'l2_leaf_reg': 5,            # увеличили с 0.696
+    'bagging_temperature': 1,
+    'random_strength': 2,        # увеличили
+    'subsample': 0.6,            # уменьшили с 0.606
+    'border_count': 127,
+    'eval_metric': 'Accuracy',
+    'verbose': 0,
+    'random_seed': 42
     }
     
     lgb_params = {
@@ -133,24 +133,22 @@ def create_final_pipeline():
     }
     
     xgb_params = {
-        'objective': 'binary:logistic',
-        'eval_metric': 'logloss',
-        'max_depth': 5,
-        'learning_rate': 0.06469574776954233,
-        'n_estimators': 265,
-        'subsample': 0.7122443755284673,
-        'colsample_bytree': 0.5136555931321807,
-        'colsample_bylevel': 0.622123951058456,
-        'reg_alpha': 1.026393035788021,
-        'reg_lambda': 17.273992959947794,
-        'gamma': 0.13126970816131117,
-        'min_child_weight': 1.5185437059086155,
-        'max_delta_step': 5.120150197004294,
-        'random_state': 42,
-        'use_label_encoder': False,
-        'verbosity': 0,
-        'n_jobs': -1
-    }
+    'objective': 'binary:logistic',
+    'eval_metric': 'logloss',
+    'max_depth': 3,              # уменьшили с 5
+    'learning_rate': 0.03,       # уменьшили с 0.0647
+    'n_estimators': 100,         # уменьшили с 265
+    'subsample': 0.5,            # уменьшили с 0.712
+    'colsample_bytree': 0.5,     # уменьшили с 0.513
+    'reg_alpha': 5,              # увеличили с 1.026
+    'reg_lambda': 10,            # уменьшили с 17.27
+    'gamma': 1,                  # увеличили с 0.131
+    'min_child_weight': 5,       # увеличили с 1.518
+    'random_state': 42,
+    'use_label_encoder': False,
+    'verbosity': 0,
+    'n_jobs': -1
+}
 
     lr = LogisticRegression(**lr_params)
     knn = KNeighborsClassifier(**knn_params)
@@ -167,7 +165,8 @@ def create_final_pipeline():
             ('xgb', xgb_model),
             ('knn', knn)
         ],
-        voting='soft'
+        voting='soft',
+        weights=[1, 2, 1, 1]
     )
     
     # Финальный пайплайн
