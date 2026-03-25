@@ -14,11 +14,9 @@ __pycache__/
 *.pyc
 
 # Модель (большие файлы)
-*.pkl
 *.joblib
 *.h5
 *.pb
-final_pipeline.pkl
 
 # CatBoost логи и временные файлы
 catboost_info/
