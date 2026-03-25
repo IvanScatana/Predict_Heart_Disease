@@ -76,4 +76,5 @@ notebooks/
 # Тестовые данные (если большие)
 data/raw/
 data/processed/
-*.csv.backup
+
+.devcontainer/
